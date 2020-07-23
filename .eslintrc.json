@@ -12,6 +12,7 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "linebreak-style": ["error", "windows"],
-    "no-console": "off"
+    "no-console": "off",
+    "comma-dangle": "off"
   }
 }
