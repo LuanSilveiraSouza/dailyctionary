@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer');
+import puppeteer from 'puppeteer';
 
 console.log('WebScraping!!!');
 
@@ -9,8 +9,6 @@ const makePdf = async (url: string) => {
   await page.goto(url);
   await page.type('input#query', 'hola');
   await page.click('button');
-
-  await page.waitFor(1000);
 
   const result = await page.$eval(
     'section.gramb ul li div p span.ind',

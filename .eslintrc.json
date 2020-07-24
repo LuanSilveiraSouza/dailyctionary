@@ -11,7 +11,7 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "linux"],
     "no-console": "off",
     "comma-dangle": "off"
   }
