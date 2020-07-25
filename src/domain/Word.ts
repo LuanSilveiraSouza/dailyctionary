@@ -1,11 +1,23 @@
-export class Word {
-  name: string
-  definitions?: string[]
-  url?: string
+import { Language } from './Language';
 
-  constructor (name: string, definitions?: string[], url?: string) {
+export class Word {
+  name: string;
+  definitions?: string[];
+  type?: string;
+  url?: string;
+  language?: Language;
+
+  constructor(
+    name: string,
+    definitions?: string[],
+    type?: string,
+    url?: string,
+    language?: Language
+  ) {
     this.name = name;
     this.definitions = definitions || [];
-    this.url = url || "";
+    this.type = type || '';
+    this.url = url || '';
+    this.language = language || Language.English;
   }
 }
