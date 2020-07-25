@@ -7,7 +7,7 @@ describe('Word test', () => {
     const word = new Word('banana');
 
     expect(word.name).toBe('banana');
-    expect(word.definitions?.length).toBe(0);
+    expect(word.definitions).toHaveLength(0);
     expect(word.type).toBe('');
     expect(word.url).toBe('');
     expect(word.language).toBe(Language.English);
@@ -24,7 +24,7 @@ describe('Spanish Word Test', () => {
     );
 
     expect(word.name).toBe('pollo');
-    expect(word.definitions?.length).toBe(1);
+    expect(word.definitions).toHaveLength(1);
     expect(word.type).toBe('MASCULINE NOUN');
     expect(word.url).toBe('https://www.lexico.com/es/definicion/pollo');
     expect(word.language).toBe(Language.Spanish);
