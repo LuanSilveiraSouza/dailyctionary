@@ -4,5 +4,5 @@ export interface WordPicker {
   repository: WordRepository;
   wordQtd: Number;
 
-  scrapRandomWords(): boolean;
+  getRandomWords(): WordRepository;
 }
