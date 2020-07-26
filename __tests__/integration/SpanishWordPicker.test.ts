@@ -1,6 +1,6 @@
-import { SpanishWordPicker } from '../../src/usecase/SpanishWordPicker';
+import { SpanishWordPicker } from '../../src/usecase/wordpicker/SpanishWordPicker';
 
-describe('SpanishWordPicker test', () => {
+describe('SpanishWordPicker tests', () => {
   test('It should create a wordpicker with 3 words', () => {
     const wordPicker = new SpanishWordPicker(3);
 

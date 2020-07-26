@@ -1,9 +1,9 @@
-const words = require('../words-lists/spanish-words.json');
+const words = require('../../words-lists/spanish-words.json');
 
 import { WordPicker } from './WordPicker';
-import { WordRepository } from '../repository/WordRepository';
-import { Language } from '../domain/Language';
-import { SpanishWord } from '../domain/SpanishWord';
+import { WordRepository } from '../../repository/WordRepository';
+import { Language } from '../../domain/Language';
+import { SpanishWord } from '../../domain/SpanishWord';
 
 export class SpanishWordPicker implements WordPicker {
   repository: WordRepository;

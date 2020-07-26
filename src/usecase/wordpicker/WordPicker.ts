@@ -1,4 +1,4 @@
-import { WordRepository } from '../repository/WordRepository';
+import { WordRepository } from '../../repository/WordRepository';
 
 export interface WordPicker {
   repository: WordRepository;
