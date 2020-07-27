@@ -1,6 +1,8 @@
-import { Word } from "../domain/Word";
+import { Word } from '../domain/Word';
 
 export interface Scraper {
-  getWordEntry(word: Word): Word;
-  getWordListEntry(wordlist: Word[]): Word[];
+  readonly baseUrl: string;
+
+  getWordEntry(word: Word): Promise<Word>;
+  getWordListEntry(wordlist: Word[]): Promise<Word[]>;
 }
