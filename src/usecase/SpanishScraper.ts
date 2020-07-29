@@ -17,12 +17,26 @@ export class SpanishScraper implements Scraper {
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`${this.baseUrl}/definicion/${word.name}`);
+    await page.goto(
+      `${this.baseUrl}/buscar?utf8=✓&filter=es_dictionary&dictionary=es&query=${word.name}`
+    );
 
-    const definitions = await page.$$('ul.semb li div.trg p span.ind');
+    let definitions = await page.$$('ul.semb li div.trg p span.ind');
+
+    if (definitions.length === 0) {
+      const newWord = await page.$('ul.search-results li a.no-transition');
+
+      word.name = await page.evaluate((el) => el.innerText, newWord);
+
+      await newWord?.click();
+
+      await page.waitForNavigation();
+
+      definitions = await page.$$('ul.semb li div.trg p span.ind');
+    }
 
     for (const def of definitions) {
-      const singleDef = await page.evaluate(el => el.innerText, def);
+      const singleDef = await page.evaluate((el) => el.innerText, def);
 
       word.definitions?.push(singleDef);
     }
