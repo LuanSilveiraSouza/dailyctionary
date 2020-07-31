@@ -1,8 +1,8 @@
 import { WordRepository } from '../../repository/WordRepository';
+import { Language } from '../../domain/Language';
 
 export interface WordPicker {
-  repository: WordRepository;
-  wordQtd: Number;
+  language: Language
 
-  getRandomWords(): WordRepository;
+  getRandomWords(wordQtd: Number): WordRepository;
 }
