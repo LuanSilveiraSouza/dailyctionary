@@ -21,8 +21,7 @@ const scrap = async (): Promise<Word[]> => {
 
 const sendMail = (mailOptions: {}) => {
   const transporter = nodemailer.createTransport({
-    host: process.env.HOST,
-    port: 2525,
+    service: process.env.SERVICE,
     auth: {
       user: process.env.USER,
       pass: process.env.PASS,
@@ -41,7 +40,7 @@ const main = async () => {
 
   const today = new Date(Date.now());
 
-  let mailText = `Day ${today.getUTCDate()}/${today.getUTCMonth()}/${new Date().getUTCFullYear()}${'\n'}${'\n'}`;
+  let mailText = '';
 
   words.forEach(word => {
     mailText += `${word.name}${'\n'}${word.type}${'\n'}${word.definitions}${'\n'}${word.url}${'\n'}${'\n'}`
@@ -50,7 +49,7 @@ const main = async () => {
   const mailOptions = {
     from: process.env.MAIL,
     to: process.env.MAIL,
-    subject: 'Dailyctionary',
+    subject: `Dailyctionary - Dia ${today.getUTCDate()}/${today.getUTCMonth()}/${new Date().getUTCFullYear()}`,
     text: mailText,
   }  
 
