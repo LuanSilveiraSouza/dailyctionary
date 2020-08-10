@@ -1,7 +1,6 @@
 import puppeteer from 'puppeteer';
 import { Scraper } from './Scraper';
 import { Word } from '../domain/Word';
-import { defaultMaxListeners } from 'stream';
 
 export class SpanishScraper implements Scraper {
   readonly baseUrl: string;

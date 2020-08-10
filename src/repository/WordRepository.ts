@@ -18,6 +18,15 @@ export class WordRepository {
     return this.words.filter((word) => word.name === name)[0];
   }
 
+  setWord(word: Word): boolean {
+    let filter = this.words.filter((word) => word.name === word.name)[0];
+
+    if (filter) {
+      filter = word;
+    } 
+    return filter === word;
+  }
+
   addWord(word: Word): boolean {
     if(word.language === this.language) {
       this.words.push(word);
